@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ====custom css==== */
+.gallery>:nth-child(1) {
+    grid-column: 1/1;
+    grid-row: 1/1;
+    max-width: 100%;
+}
+
+.gallery>:nth-child(1) img {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .gallery>:nth-child(1) {
+        grid-column: 1/3;
+        grid-row: 1/3;
+        max-width: 100%;
+    }
+
+    .gallery>:nth-child(1) img {
+        width: 100%;
+    }
+}
