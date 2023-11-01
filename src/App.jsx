@@ -28,7 +28,7 @@ const App = () => {
   };
   return (
     <div className="w-full min-h-screen h-full bg-gray-50 pt-3">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-2">
         <div className="bg-white shadow-md ring-1 ring-gray-200 rounded-md">
           <div className="flex justify-between items-center py-2 px-2 md:px-5">
             {selectedImages.length ? (
