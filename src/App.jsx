@@ -1,11 +1,11 @@
 import { Button } from "@material-tailwind/react";
 import imageData from "./images.json";
 import { useState } from "react";
+import { TiImage } from "react-icons/ti";
 import Images from "./components/Image/Images";
 const App = () => {
   const [images, setImages] = useState(imageData);
   const [selectedImages, setSelectedImages] = useState([]);
-  console.log(selectedImages);
   const moveImage = (fromIndex, toIndex) => {
     const imagesCopy = [...images];
     const [movedImage] = imagesCopy.splice(fromIndex, 1);
@@ -31,17 +31,24 @@ const App = () => {
       <div className="max-w-7xl mx-auto">
         <div className="bg-white shadow-md ring-1 ring-gray-200 rounded-md">
           <div className="flex justify-between items-center py-2 px-2 md:px-5">
-            <h2 className="font-sans font-bold">
-              {selectedImages.length} Files Selected
-            </h2>
-            <Button
-              variant="text"
-              className="!text-red-600 normal-case"
-              onClick={handleDeleteImages}
-              disabled={!selectedImages.length}
-            >
-              Delete files
-            </Button>
+            {selectedImages.length ? (
+              <>
+                <h2 className="font-sans font-bold">
+                  {selectedImages.length} Files Selected
+                </h2>
+                <Button
+                  variant="text"
+                  className="!text-red-600 normal-case"
+                  onClick={handleDeleteImages}
+                >
+                  Delete files
+                </Button>
+              </>
+            ) : (
+              <>
+                <h2 className="font-sans font-bold py-2">Gallery</h2>
+              </>
+            )}
           </div>
           <hr className="border-b-[1px] border-b-gray-400" />
           <div className="mt-2 p-3 md:p-5 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gallery">
@@ -55,6 +62,10 @@ const App = () => {
                 handleImageClick={handleImageClick}
               />
             ))}
+            <div className="border-dashed border-[3px] aspect-square relative rounded-md overflow-hidden group transition-all flex justify-center items-center flex-col cursor-pointer hover:scale-105">
+              <TiImage />
+              <h2 className="select-none">Add images</h2>
+            </div>
           </div>
         </div>
       </div>
