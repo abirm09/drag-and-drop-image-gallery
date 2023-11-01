@@ -35,7 +35,7 @@ const Images = ({
       className="ring-1 ring-gray-500 aspect-square relative rounded-md overflow-hidden group transition-all"
     >
       <img
-        src={`/src/assets/images/${imageURL}`}
+        src={`images/${imageURL}`}
         alt="Gallery"
         className="mx-auto absolute w-full h-full"
         aria-disabled
